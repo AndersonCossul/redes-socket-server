@@ -7,9 +7,7 @@ const io = new Server();
 io.on("connection", (socket) => {
   socket.on("get-files", (payload, callback) => {
     const files = FileService.getAll();
-    setTimeout(() => {
-      callback(files);
-    }, 500);
+    callback(files);
   });
 
   socket.on("download-file", (payload, callback) => {
